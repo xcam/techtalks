@@ -19,7 +19,7 @@ class RxObserveOnSubscribeOnTest {
     fun test2() {
         Observable.just(1)
                 .subscribeOn(Schedulers.computation())
-                .subscribeOn(Schedulers.io())
+                .subscribeOn(Schedulers.io()) //новая строка
                 .subscribe({ printThread("subscribe") })
         Thread.sleep(1000)
     }
@@ -27,7 +27,7 @@ class RxObserveOnSubscribeOnTest {
     @Test
     fun test3() {
         Observable.just(1)
-                .observeOn(Schedulers.computation())
+                .observeOn(Schedulers.computation()) // новая строка
                 .subscribe({ printThread("subscribe") })
         Thread.sleep(1000)
     }
@@ -36,7 +36,7 @@ class RxObserveOnSubscribeOnTest {
     fun test4() {
         Observable.just(1)
                 .observeOn(Schedulers.computation())
-                .subscribeOn(Schedulers.io())
+                .subscribeOn(Schedulers.io())// новая строка
                 .subscribe({ printThread("subscribe") })
         Thread.sleep(1000)
     }
